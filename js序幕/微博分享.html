@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #word{
+            display: inline-block;
+            width: 300px;
+            height: 500px;
+            position: absolute;
+            top: 30px;
+            left: 50px;
+        }
+        #fini{
+            width: 40px;
+            height: 40px;
+            background-color: yellow;
+            color: black;
+            position: absolute;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+<p id="word">jnwebfwrlbeuiniwbriewbvonvioeojewjfeipfje[iewnebnjnvenioneferowgrwgurhwhuthrhgrgrgjejevdvmdlvnfnoigjwoeigjroiegjowigjiorgjrioge
+    rginburbn ribns;ns;gnwebfwrlbeuiniwbriewbvonvioeojewjfeipfje[iewnebnjnvenioneferowgrwgurhwhuthrhgrgrgjejevdvmdlvnfnoigjwoeigjroiegjowigjiorgjrioge
+    rginburbn ribns;ns;gnwebfwrlbeuiniwbriewbvonvioeojewjfeipfje[iewnebnjnvenioneferowgrwgurhwhuthrhgrgrgjejevdvmdlvnfnoigjwoeigjroiegjowigjiorgjrioge
+    rginburbn ribns;ns;gn</p>
+<div id="fini"></div>
+<script>
+    var word=document.getElementById("word")
+    var fini=document.getElementById("fini")
+    var textt=""
+    word.onmouseup=function (event) {
+
+        if(window.getSelection){
+            textt=window.getSelection().toString()//获取选中文字
+        }else{
+            textt=document.seletion.createRange().text
+        }
+        var e=event||window.event
+        var x=e.clientX;
+        var y=e.clientY;
+        if(textt!==""){
+            fini.style.top=y+"px"
+            fini.style.left=x+"px"
+            // fini.innerText=textt
+            fini.style.display="block"
+        }
+
+    }
+    document.onmousedown=function (event) {
+        var e=event||window.event
+        var shijianyuan=e.target;
+        if(shijianyuan!==fini){
+            fini.style.display="none"
+        }else {
+            window.location.href="http://v.t.sina.com.cn/share/share.php?searchPic=false&title="+textt+"&url=https://github.com/xuanzhihua"
+        }
+    }
+</script>
+</body>
+</html>

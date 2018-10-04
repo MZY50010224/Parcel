@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #btn{
+            width: 60px;
+            height: 30px;
+            background-color: yellow;
+        }
+        #box{
+            width: 60px;
+            height: 60px;
+            background-color: brown;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+<button id="btn">开始</button>
+<div id="box"></div>
+<script>
+    var btn=document.getElementById("btn")
+    var box=document.getElementById("box")
+    btn.onclick=function () {
+        move(box,10,600)
+    }
+    // var timer=null;
+    // var speed=10;
+    // var widthk=0
+    // btn.onclick=function () {
+    //     clearInterval(timer)
+    //     timer=setInterval(function () {
+    //         widthk+=speed
+    //         if(widthk>600){
+    //             clearInterval(timer)
+    //         }
+    //         box.style.left=widthk+"px"
+    //         // console.log(box.offsetLeft)
+    //     },10)
+    // }
+    function move(ele,speed,big) {
+        clearInterval(ele.timer)
+        ele.timer=setInterval(function () {
+            ele.style.left=ele.offsetLeft+speed+"px"
+            if(Math.abs(big-ele.offsetLeft)<speed){
+                clearInterval(ele.timer)
+                ele.style.left=big+"px"
+
+            }
+            console.log(parseInt(ele.style.left))
+        },100)
+    }
+</script>
+</body>
+</html>

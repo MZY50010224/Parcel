@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        #main{
+            width: 800px;
+            height: 300px;
+            margin: 50px auto;
+            position: relative;
+            overflow: hidden;
+        }
+        #main ul{
+            width: 500%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        #main ul li{
+            width: 20%;
+            height: 100%;
+            float: left;
+        }
+        #main ol{
+            position: absolute;
+            right: 10px;
+            bottom: 10px;
+        }
+        #main ol li{
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color: gray;
+            z-index: 9;
+            float: left;
+            margin-left: 5px;
+        }
+        .active{
+            background-color: red!important;
+        }
+    </style>
+</head>
+<body>
+<div id="main">
+    <ul>
+        <li><img src="img/timg5.jpg"></li>
+        <li><img src="img/timg9.jpg"></li>
+        <li><img src="img/timg3.jpg"></li>
+        <li><img src="img/timg4.jpg"></li>
+    </ul>
+    <ol></ol>
+</div>
+<script>
+    window.onload=function () {
+        var ul=document.getElementsByTagName("ul")[0]
+        var allli=ul.getElementsByTagName("li")
+        var ol=document.getElementsByTagName("ol")[0]
+        var olli=ol.children
+        var ulliindex=0,olliindex=0
+        var timer=0
+        ul.appendChild(allli[0].cloneNode(true))
+        // for(var i=0;i<allli.length;i++){
+        //     allli[i].style.left=allli[i].offsetWidth*i +"px"
+        // }
+        for(var j=0;j<allli.length-1;j++){
+            var oli=document.createElement("li")
+            ol.appendChild(oli)
+        }
+        ol.children[0].className="active";
+
+
+        for(var j=0;j<olli.length;j++){
+            (function (j) {
+                olli[j].onmouseover=function () {
+                    // clearInterval(timer)
+                    for(var i=0;i<olli.length;i++){
+                        olli[i].className=""7
+                    }
+                    this.className="active"
+                    ul.style.left=-(j*allli[j].offsetWidth)+"px"
+                }
+            })(j)
+        }
+        timer=setInterval(set,2000)
+        olli.onmouseover=function () {
+            clearInterval(timer)
+        }
+        olli.onmouseout=function () {
+            timer=setInterval(set,2000)
+        }
+        function set() {
+            ulliindex++;
+            olliindex++;
+            if(ulliindex>olli.length ){
+                ulliindex=1
+
+            }
+            if(olliindex>olli.length-1){
+                olliindex=0
+            }
+            ul.style.left=-(ulliindex*allli[0].offsetWidth)+"px"
+            for(var j=0;j<olli.length;j++){
+                olli[j].className=""
+            }
+
+            olli[olliindex].className="active"
+        }
+    }
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+
+        table{
+            border: black 2px solid ;
+            margin: 100px auto;
+            border-collapse: collapse;
+        }
+        thead{
+            background-color: skyblue;
+            border: black 1px solid;
+        }
+        tbody{
+            background-color: #cccccc;
+        }
+        tr,td{
+            border: black 1px solid;
+            padding: 10px 30px;
+
+        }
+
+    </style>
+    <script src="js/jquery-1.11.1.min.js"></script>
+    <script src="js/jquery.tablecha.js"></script>
+</head>
+<body>
+<table id="table">
+    <thead>
+    <tr>
+        <td>姓名</td>
+        <td>年龄</td>
+        <td>爱好</td>
+        <td>吃饭</td>
+        <td>代码</td>
+        <td>运动</td>
+    </tr>
+    </thead>
+    <tbody id="tbody">
+    <tr>
+        <td>姓名</td>
+        <td>年龄</td>
+        <td>爱好</td>
+        <td>吃饭</td>
+        <td>代码</td>
+        <td>运动</td>
+    </tr>
+    </tbody>
+    <script>
+        //希望根据数据添加新内容,并且可以自定义表格中的事件
+        $("#tbody").tablecha({"url":"./shuju.json",
+            click:function () {
+                $(this).css("background","red")
+            },
+            mouseover:function () {
+                $(this).css("background","white")
+            },
+            mouseleave:function f() {
+                $(this).css("background","#cccccc")
+            }
+        })
+    </script>
+</table>
+</body>
+</html>

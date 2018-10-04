@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        #bigbest{
+            width: 600px;
+            height: 350px;
+            margin: 100px auto;
+            position: relative;
+        }
+        #main{
+            width: 600px;
+            height: 320px;
+            position: absolute;
+            overflow: hidden;
+        }
+        ul{
+            width: 1200px;
+            height: 100%;
+        }
+        li{
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            background-size: cover;
+        }
+        #crl{
+            width:100%;
+            height: 100%;
+        }
+        #left{
+            width: 50px;
+            height: 50px;
+            background-color: yellow;
+            position: absolute;
+            top: 40%;
+            left: 0;
+        }
+        #right{
+            width: 50px;
+            height: 50px;
+            background-color: yellow;
+            position: absolute;
+            top: 40%;
+            right: 0;
+        }
+        #bottom{
+            width: 600px;
+            height: 30px;
+            position: absolute;
+            top: 320px;
+            left: 0;
+
+            background-color: #cccccc;
+        }
+        ol{
+            width: 60%;
+            height: 100%;
+            position: absolute;
+            left: 38%;
+        }
+        #bottom li{
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color: black;
+            position: absolute;
+            line-height: 90px;
+            overflow: hidden;
+        }
+        .active{
+            background-color: red!important;
+        }
+        #li1{
+            background-image: url("img/huo1.jpg");
+            /*z-index: 99;*/
+        }
+        #li2{
+            background-image: url("img/huo2.jpg");
+        }
+        #li3{
+             background-image: url("img/huo3.jpg");
+         }
+        #li4{
+              background-image: url("img/huo4.jpg");
+          }
+
+
+    </style>
+</head>
+<body>
+<div id="bigbest">
+    <div id="main">
+        <ul>
+            <li id="li1"></li>
+            <li id="li2"></li>
+            <li id="li3"></li>
+            <li id="li4"></li>
+        </ul>
+    </div>
+    <div id="crl">
+        <div id="left" class="left"></div>
+        <div id="right" class="right"></div>
+        <div id="bottom">
+            <ol id="ol">
+
+            </ol>
+        </div>
+
+    </div>
+</div>
+<script>
+    var ul=document.getElementsByTagName("ul")[0]
+    var lis=ul.getElementsByTagName("li")
+    var ol=document.getElementById("ol")
+    var ctl=document.getElementById("crl")
+    var ctls=ctl.children;
+    var iNow=0;
+    var bigbest=document.getElementById("bigbest")
+    for(var i=0;i<lis.length;i++){
+        (function (i) {
+            // lis[i].style.backgroundImage="url(img/huo"+(i+1)+".jpg)"
+            var olli=document.createElement("li")
+            olli.innerText=i
+            ol.appendChild(olli)
+        })(i)
+    }
+    var ollis=ol.getElementsByTagName("li");
+    for(var j=0;j<ollis.length;j++){
+        (function (j) {
+            ollis[j].style.left=j*40+"px"
+            ollis[j].style.top=3+"px"
+        })(j)
+    }
+    ollis[0].className="active"
+
+    //让滚动的内容归位,除了第一张，其他的都到右边一格
+    var lisw=lis[0].offsetWidth
+    for(var k=1;k<lis.length-1;k++){
+        lis[k].style.left=lisw+"px"
+    }
+    lis[3].style.left=lisw+"px"
+
+    //便利控制按钮
+    for(var z=0;z<ctls.length;z++){
+        ctls[z].onclick=function () {
+            if(this.className==="left"){
+                //让当前图片做动画右移
+                //让上一张即要被传入的图片直接移到左边
+                //让上一张做动画由左移进
+                slower(lis[iNow],{"left":lisw})
+                iNow--
+                if(iNow<0){
+                    iNow=lis.length-1
+                }
+                lis[iNow].style.left=-lisw+"px"
+                slower(lis[iNow],{"left":0})
+                changeindex()
+            }else if(this.className==="right"){
+                //让当前图片做动画左移
+                //让下一张到右边准备
+                //让下一张由右至左做动画进入
+                set()
+            }else{
+                for(var i=0;i<ollis.length;i++){
+                    ollis[i].onclick=function () {
+                        if(this.innerText>iNow){
+                            slower(lis[iNow],{"left":lisw})
+                            iNow=this.innerText
+                            lis[this.innerText].style.left=-lisw+"px"
+
+                            slower(lis[this.innerText],{"left":0})
+                            changeindex()
+                        }else if(this.innerText<iNow){
+                            slower(lis[iNow],{"left":lisw})
+                            iNow=this.innerText
+                            lis[this.innerText].style.left=-lisw+"px"
+
+                            slower(lis[this.innerText],{"left":0})
+                            changeindex()
+                        }
+                    }
+                }
+            }
+        }
+
+    }
+    var timer=setInterval(set,1500)
+    bigbest.onmouseenter=function () {
+        clearInterval(timer)
+    }
+    bigbest.onmouseleave=function () {
+        clearInterval(timer)
+        timer=setInterval(set,1500)
+    }
+
+function set() {
+    //让当前图片做动画左移
+    //让下一张到右边准备
+    //让下一张由右至左做动画进入
+    slower(lis[iNow],{"left":-lisw})
+    iNow++
+    if(iNow>=lis.length){
+        iNow=0
+    }
+    lis[iNow].style.left=lisw+"px"
+    slower(lis[iNow],{"left":0})
+    changeindex()
+}
+
+function changeindex() {
+    for(var i=0;i<ollis.length;i++){
+        ollis[i].className=""
+    }
+    ollis[iNow].className="active"
+}
+
+
+    //封装缓动动画
+    function slower(obj,json,fn) {//传的参数，对象，json，回掉函数
+        //首先第一步，清除定时器
+        flag=true
+        clearInterval(obj.timer)
+        //声明一些要用的变量
+        var first=0;target=0,speed=0;
+        //要有缓东动画，必须要有定时器，先创建定时器
+        obj.timer=setInterval(function () {
+            //定时器创建好后，可以开始写环东动画，首先，要将实参拿到，并用起来
+            for(var k in json){//用for in遍历json,k是键名，json[k]是键值
+                if(k==="scrollTop"){
+                    first=obj.scrollTop;
+                    target=parseInt(json[k])
+                    console.log(k,json[k])
+                }else if(k==="opacity"){
+                    console.log("p")
+                }else{
+                    first=parseInt(getstyleattr(obj,k))//将获取到的数字取整
+                    target=parseInt(json[k])
+                    console.log(k,json[k])
+                }
+                //到这，我们拥有了起始值和目标值，可写欢动动画
+
+                speed=(target-first)*0.2
+                if(target>first){
+                    speed=Math.ceil(speed)
+                }else if(target<first){
+                    speed=Math.floor(speed)
+                }
+                if(k==="scrollTop"){
+                    obj.scrollTop=(first+speed)
+                }else{
+                    obj.style[k]=first+speed+"px"
+                }
+
+                if(first!==target){
+                    flag=false
+                }else{
+                    if(fn){
+                        fn()
+                    }
+                    clearInterval(obj.timer)
+                }
+            }
+
+        },10)
+
+
+    }
+
+
+
+
+
+
+
+
+    function getstyleattr(obj,attr) {//用来获取指定对象属性的值
+        if(obj.currentStyle){
+            return obj.currentStyle[attr]
+        }else{
+            return window.getComputedStyle(obj,null)[attr]
+        }
+    }
+</script>
+</body>
+</html>

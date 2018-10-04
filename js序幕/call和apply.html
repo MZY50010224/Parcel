@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+</head>
+<body>
+<script>
+var pi={"name":"a"}
+pi.phone=function(target,time){
+	console.log(this.name+target+time)
+}
+var p2={"name":"b"}
+pi.phone.apply(p2,["fff","111"])
+
+</script>
+</body>
+
+
+</html>

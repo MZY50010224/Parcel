@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        #div1{
+            width: 80px;
+            height: 80px;
+            background-color: red;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        #btn1{
+            width: 80px;
+            height: 30px;
+            position: relative;
+            left: 0px;
+            top: 90px;
+        }
+    </style>
+</head>
+<body>
+    <div id="div1"></div>
+    <button id="btn1">按钮</button>
+    <script>
+        var div1=document.getElementById("div1");
+        var btn1=document.getElementById("btn1");
+        var timer=null;
+        var begin=0;
+        var end=400;
+        btn1.onclick=function(){
+            clearInterval(timer)
+            timer=setInterval(function(){
+                
+                begin += parseInt((end-begin)*0.1);
+                console.log(begin);
+                if(Math.round(begin)>=end){
+                    begin=end
+                    clearInterval(timer)
+                }
+                div1.style.marginLeft=begin+"px"
+            },20)
+            
+        }
+    </script>
+</body>
+</html>

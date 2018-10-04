@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="box">0</div>
+<button id="btn">open</button>
+<script src="js/jquery-1.11.1.min.js"></script>
+<script>
+$("#btn").on("click.one",function () {
+    $("#box").css("background","red")
+})
+$("#btn").on("click.t",function () {
+    $("#box").html("oppopopopoopop")
+})
+    $("#btn").off("click.t")
+</script>
+</body>
+</html>

@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        html,body{
+            width: 100%;
+            height: 100%;
+        }
+        ol{
+            width: 100px;
+            height: 200px;
+            position: fixed;
+            top: 100px;
+            left: 100px;
+        }
+        ol li{
+            width: 100%;
+            height: 25%;
+            background-color: #cccccc;
+            text-align: center;
+            line-height: 300%;
+        }
+        ul{
+            width:100%;
+            height:400%;
+        }
+        ul li{
+            width: 100%;
+            height: 25%;
+            text-align: center;
+            line-height: 100px;
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+<ol>
+    <li>第一层</li>
+    <li>第二层</li>
+    <li>第三层</li>
+    <li>第四层</li>
+</ol>
+<ul>
+    <li>第一层</li>
+    <li>第二层</li>
+    <li>第三层</li>
+    <li>第四层</li>
+</ul>
+<script>
+    window.onload=function () {
+        var ol=document.getElementsByTagName("ol")[0]
+        var olli=ol.getElementsByTagName("li")
+        var ul=document.getElementsByTagName("ul")[0]
+        var ulli=ul.getElementsByTagName("li")
+        var color=["yellow","blue","green","gray"]
+        for(var i=0;i<olli.length;i++){
+            (function (i) {
+                ulli[i].style.backgroundColor=color[i]
+            })(i)
+        }
+        for(var j=0;j<olli.length;j++){
+            (function (j) {
+                olli[j].onmouseover=function () {
+                    for(var i=0;i<olli.length;i++){
+                        olli[i].style.backgroundColor=""
+                    }
+                    this.style.backgroundColor="red"
+                }
+                olli[j].onclick=function () {
+                    // console.log(j*ulli[0].offsetHeight)
+                    // document.documentElement.scrollTop=j*ulli[0].offsetHeight
+                    buffer(document.documentElement,{scrollTop:j*ulli[0].offsetHeight})
+                }
+            })(j)
+        }
+    }
+
+
+
+
+
+
+
+
+    function buffer(obj,json,fn) {//为避免有太多的属性值要传使格式杂乱不堪，我们用json格式来做，遍历json即可得到想要值，方便之至
+        var flag=true
+        clearInterval(obj.timer)//首先清除定时器
+        var speed=0,chu=0,target=0;//声明一些后面要用的变量
+            obj.timer=setInterval(function () {
+                for(var k in json){//遍历传入的json数组
+                    if("scrollTop"===k){//k是键名，如果传入的键名属性是scrolltop，则执行下列判断
+                        chu=obj.scrollTop//起始值是obj。scrolltop
+                        target=parseInt(json[k])//结束值是json传入的对应值
+                    }else{//其他情况
+                        chu=parseInt(getstyleattr(obj,k))
+                        target=parseInt(json[k])
+                    }//首先利用判断看传入的是什么值，之后根据不同值给予对应的措施
+
+                    //到这里，我们有了起始值chu和结束值target，缓动公式成立
+
+                    speed=(target-chu)*0.2//缓动公式变形计算步长
+                    if(target>chu){//如果结束值大于起始值，向上取整
+                        speed=Math.ceil(speed)
+                    }else if(target<chu){//反之向下取整
+                        speed=Math.floor(speed)
+                    }//在定时器中这样写是对的，换了格式
+
+                    if("scrollTop"===k){
+                        obj.scrollTop=(speed+chu)//根据不同参数使用不同方法
+                    }else{
+                        obj.style[k]=(speed+chu)+"px"
+                    }
+
+                    if(chu!==target){//这里chu代表多个json中的值，传几个有几个，其中一个不等，都不能清除定时器
+                        flag=false//让flag为否
+                    }else{
+                        clearInterval(obj.timer)
+                    }
+                    // if(flag){//如果flag为真，即全部属性到位，就会清除定时器
+                    //     clearInterval(obj.timer)
+                    //     if(fn){
+                    //         console.log(fn)
+                    //         fn()
+                    //     }
+                    // }
+                }
+            },30)
+
+
+
+    }
+
+    function getstyleattr(obj,attr) {
+        if(obj.currentStyle){
+            return obj.currentStyle[attr]
+        }else{
+            return window.getComputedStyle(obj,null)[attr]
+        }
+    }
+</script>
+</body>
+</html>

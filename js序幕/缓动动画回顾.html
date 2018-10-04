@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #box{
+          background-color: red;
+            width: 200px;
+            height: 200px;
+            position: absolute;
+
+        }
+    </style>
+</head>
+<body>
+<button id="btn">向右走</button>
+<div id="box"></div>
+<script>
+    window.onload=function () {
+        var btn=document.getElementById("btn")
+        var box=document.getElementById("box")
+        var timer=null,tar=800;
+        btn.onclick=function () {
+            clearInterval(timer)
+            timer=setInterval(function () {
+                var speed=(tar-box.offsetLeft)*0.2
+                speed=Math.ceil(speed)
+                console.log(speed)
+                box.style.left=(speed+box.offsetLeft)+"px"
+                if(box.offsetLeft===tar){
+                    clearInterval(timer)
+                }
+            },30)
+        }
+    }
+</script>
+</body>
+</html>

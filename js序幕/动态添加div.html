@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        div{
+            width: 10rem;
+            height: 3rem;
+            background-color: red;
+            position: relative;
+            top: 0rem;
+            left: 0rem;
+        }
+        #div1{
+            width: 100%;
+            height: 10rem;
+            position: absolute;
+            top: 3rem;
+            left: 0;
+            background-color: black;
+        }
+    </style>
+</head>
+<body>
+    <button id="btn1">添加</button>
+    <button id="btn2">删除</button>
+    <input type="text" id="text">
+    <div id="div1"></div>
+    <script>
+        var btn1=document.getElementById("btn1")
+        var divr=document.getElementById("div1")
+        var str=""
+        var text=document.getElementById("text")
+        btn1.onclick=function(){
+            var te=text.value;
+            str+="<div>"+te+"</div>"
+            
+            divr.removeChild(divr.firstChild)
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        body{
+            background-color: black;
+        }
+        span{
+            width: 25px;
+            height: 25px;
+            background-color: white;
+            border-radius: -10px;
+            position: absolute;
+            transform-style: preserve-3d;
+            transform:rotateZ(45deg);
+            animation-name: bili;
+            animation-duration: 1s;
+            animation-iteration-count: infinite;
+        }
+        @keyframes bili{
+            0%{opacity: 0;}
+            100%{opacity: 1;}
+        }
+    </style>
+</head>
+<body>
+<script>
+    var body=document.getElementsByTagName("body")[0]
+    var screenw=document.documentElement.clientWidth
+    var screeny=document.documentElement.clientHeight
+    for(var i=0;i<1000;i++) {
+        var spans = document.createElement("span")
+        body.appendChild(spans)
+        var x=parseInt(Math.random()*screenw);
+        var y=parseInt(Math.random()*screeny);
+        spans.style.left=x+"px";
+        spans.style.top=y+"px";
+        var s=Math.random()*4
+        var d=Math.random()*1.2
+        spans.style.animationDuration=s+"s"
+        spans.style.transitionProperty="transform"
+        spans.style.transform="scale("+d+","+d+")"
+        console.log(s)
+    }
+</script>
+</body>
+</html>

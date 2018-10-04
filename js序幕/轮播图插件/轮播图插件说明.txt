@@ -1,0 +1,114 @@
+css规范：
+        *{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        #bigbest{
+            /*width: 1200px;*/
+            /*height: 350px;*/
+            margin: 100px auto;
+            position: relative;
+        }
+        #main{
+            width: 100%;
+            height: 90%;
+            position: relative;
+            top: 0;
+            left: 0;
+            overflow: hidden;
+        }
+        ul{
+            width: 200%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        li{
+            width: 50%;
+            height: 100%;
+            position: absolute;
+            background-size: cover;
+        }
+        #crl{
+            width:100%;
+            height: 100%;
+            position: relative;
+            top: -100%;
+            left: 0;
+        }
+        #left{
+            width: 50px;
+            height: 50px;
+            background-color: yellow;
+            position: absolute;
+            top: 40%;
+            left: 0;
+        }
+        #right{
+            width: 50px;
+            height: 50px;
+            background-color: yellow;
+            position: absolute;
+            top: 40%;
+            right: 0;
+        }
+        #bottom{
+            width:100%;
+            height: 10%;
+            position: absolute;
+            top: 90%;
+            left: 0;
+
+            background-color: #cccccc;//#bottom不想要可以设置display：none
+        }
+        ol{
+            width: 100%;
+            height: 100%;
+            position: relative;
+
+        }
+        ol li{
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color: black;
+            margin-left:18%;
+            top: 15%;
+            float: left;
+            position: relative;
+        }
+        .active{
+            background-color: red!important;
+        }
+
+
+#bottom不想要可以设置display：none
+
+html规范：
+例：
+<div id="bigbest">//父盒子
+    <div id="main">//轮播的内容盒子
+        <ul>
+        </ul>
+    </div>
+    <div id="crl">
+        <div id="left" class="left"></div>//左按钮
+        <div id="right" class="right"></div>//右按钮
+        <div id="bottom">
+            <ol id="ol">//下边小圆点
+            </ol>
+        </div>
+    </div>
+</div>
+
+script规范：
+通过$("#bigbest").lunbo()来调用插件，参数可通过json格式传入，例：
+$("#bigbest").lunbo({"urla":"img/huo1.jpg",
+                    "urlb":"img/huo2.jpg",
+                    "urlc":"img/huo3.jpg",//想轮播的图片路径
+                    "urld":"img/huo4.jpg",
+                    "width":"1200px",//父盒子的大小自己设定
+                    "height":"500px"
+})

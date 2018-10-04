@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<ul id="ul">
+    <li>张三又失踪了</li>
+</ul>
+<button id="button">come on</button>
+<script>
+var ul=document.getElementById("ul")
+    var button=document.getElementById("button")
+    button.onclick=function (event) {
+        var e=event||window.event
+        var lis=document.createElement("li")
+        lis.innerText="ppppppppppppppp"
+        ul.appendChild(lis)
+    }
+    ul.onclick=function (event) {
+        var e=event||window.event
+        e.target.style.background="red"
+    }
+</script>
+</body>
+</html>

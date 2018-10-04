@@ -1,0 +1,29 @@
+用法示例：
+ $("#tb").tablejia({
+            "url":"./opop.json",//将想要的参数通过json传入
+            click:function () {
+                $(this).css("background","red")//传入事件类型和执行代码
+            },
+            mouseover:function () {
+                console.log("ppppppppppp")//传入事件类型和执行代码
+            },
+            mouseleave:function f() {
+                $(this).css("background","white")//传入事件类型和执行代码
+            }
+        })//调用表格插件，用户通过传参来渲染数据，并且自定义事件
+css示例：
+ <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        table{
+            border: black 1px solid;
+            margin: 100px auto;
+        }
+        tr,td{
+            border: black 1px solid;
+            padding: 10px;
+        }
+
+    </style>

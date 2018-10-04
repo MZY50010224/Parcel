@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head></head>
+<body>
+	<script type="text/javascript">
+		function Snak(name,age){
+			this.name=name
+			this.age=age
+		}
+		Snak.prototype.eat=function(){
+			console.log("x")
+		}//prototype是当前类的原型属性,可通过原型链一直向上追溯,最终都会通向object,因为在js中万物皆对象,每个对象上都有原型属性,并且还有-proto-,这个是父级的原型的映射,而原型链的存在使得一个对象上有可能同时存在他们两个元素,因为它既是一个类,也是由上一个类实例化出来的
+		var ddd=new Snak("S","11")
+		console.dir(Snak)
+		console.dir(ddd)
+		console.log(Snak.prototype===ddd.__proto__)
+	</script>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<ul id="ul">
+    <li>张三又失踪了</li>
+</ul>
+<button id="button">come on</button>
+<script src="js/jquery-1.11.1.min.js"></script>
+<script>
+$("#ul").on("click","li",function () {
+    $(this).css("background","red")
+})
+    $("#button").on("click",function () {
+        $("<li>ppppppppp</li>").appendTo("#ul")
+    })
+</script>
+</body>
+</html>

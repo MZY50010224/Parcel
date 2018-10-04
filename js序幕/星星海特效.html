@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        body{
+            background-color: black;
+            perspective: 1000px;
+        }
+        span{
+            width: 25px;
+            height: 25px;
+            background-color: white;
+            border-radius: -10px;
+            position: absolute;
+            transform-style: preserve-3d;
+            transform:rotateZ(45deg);
+            animation-name: bili;
+            animation-duration: 1s;
+            animation-iteration-count: infinite;
+        }
+        @keyframes bili{
+            0%{opacity: 0;}
+            100%{opacity: 1;}
+        }
+    </style>
+</head>
+<body>
+    <script>
+        var screenw=document.documentElement.clientWidth;
+        var screeny=document.documentElement.clientHeight;
+        //用for循环创建多个星星，用随机数改变星星位置，用随机数改变其缩放大小，用随机数改变其闪烁时间
+        for(var i=0;i<150;i++){
+            var span=document.createElement("span")
+            document.body.appendChild(span)
+            var x=parseInt(Math.random()*screenw);
+            var y=parseInt(Math.random()*screeny);
+            span.style.left=x+"px";
+            span.style.top=y+"px";
+            var scale=Math.random()*1.5;
+            span.style.transform='scale('+scale+','+scale+')'
+            span.style.animationDuration=scale+"s"
+        }
+        
+        
+    </script>
+</body>
+</html>

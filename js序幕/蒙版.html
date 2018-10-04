@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        html,boody{
+            width: 100%;
+            height: 3000px;
+        }
+        #mengban{
+            width: 100%;
+            height: 100%;
+            background-color: black;
+            opacity: 0.4;
+            filter: alpha(opacity:40);
+            position: absolute;
+            top: 0;
+            left: 0;
+            display: none;
+        }
+        #btn{
+            width: 80px;
+            height: 30px;
+        }
+        #login{
+            width: 30%;
+            height: 50%;
+            background-color: brown;
+            position: absolute;
+            top: 20%;
+            left: 35%;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <button id="btn">点击点击</button>
+    <div id="mengban"></div>
+    <div id="login"></div>
+<script>
+    var btn=document.getElementById("btn")
+    var mengban=document.getElementById("mengban")
+    var login=document.getElementById("login")
+    btn.onclick=function (event) {
+        if (event&&event.stopPropagation){
+            event.stopPropagation()
+        }else{
+            event.cancelBubble=true
+        }
+        mengban.style.display='block'
+        login.style.display='block'
+        document.body.style.overflow="hidden"
+    }
+    document.onclick=function (event) {
+        if (event&&event.stopPropagation){
+            event.stopPropagation()
+        }else{
+            event.cancelBubble=true
+        }
+        var e=event||window.event
+        if(e.target!==login){
+            mengban.style.display='none'
+            login.style.display='none'
+        }
+    }
+</script>
+</body>
+</html>

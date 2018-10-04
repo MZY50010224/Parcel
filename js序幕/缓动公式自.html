@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        #btn{
+            width: 100px;
+            height: 30px;
+        }
+        #btn1{
+            width: 100px;
+            height: 30px;
+        }
+        #main{
+            width:100%;
+            height: 3000px;
+        }
+        #box{
+            width:200px;
+            height: 200px;
+            background-color: red;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+<div id="main">
+<button id="btn"></button>
+    <button id="btn1">xxxx</button>
+<div id="box"></div>
+</div>
+<script>
+    var btn=document.getElementById("btn")
+    var btn1=document.getElementById("btn1")
+    var box=document.getElementById("box")
+    var main=document.getElementById("main")
+    btn.onclick=function () {
+        slower(box,{"left":800})
+    }
+    btn1.onclick=function () {
+        slower(document.documentElement,{"scrollTop":800})
+    }
+
+
+
+    //封装缓动动画
+    function slower(obj,json,fn) {//传的参数，对象，json，回掉函数
+        //首先第一步，清除定时器
+        flag=true
+        clearInterval(obj.timer)
+        //声明一些要用的变量
+        var first=0;target=0,speed=0;
+        //要有缓东动画，必须要有定时器，先创建定时器
+        obj.timer=setInterval(function () {
+            //定时器创建好后，可以开始写环东动画，首先，要将实参拿到，并用起来
+            for(var k in json){//用for in遍历json,k是键名，json[k]是键值
+                if(k==="scrollTop"){
+                    first=obj.scrollTop;
+                    target=parseInt(json[k])
+                    console.log(k,json[k])
+                }else if(k==="opacity"){
+                    console.log("p")
+                }else{
+                    first=parseInt(getstyleattr(obj,k))//将获取到的数字取整
+                    target=parseInt(json[k])
+                    console.log(k,json[k])
+                }
+                //到这，我们拥有了起始值和目标值，可写欢动动画
+
+                speed=(target-first)*0.2
+                if(target>first){
+                    speed=Math.ceil(speed)
+                }else if(target<first){
+                    speed=Math.floor(speed)
+                }
+                if(k==="scrollTop"){
+                    obj.scrollTop=(first+speed)
+                }else{
+                    obj.style[k]=first+speed+"px"
+                }
+
+                if(first!==target){
+                    flag=false
+                }else{
+                    if(fn){
+                        fn()
+                    }
+                    clearInterval(obj.timer)
+                }
+            }
+
+        },10)
+
+
+    }
+
+
+
+
+
+
+
+
+    function getstyleattr(obj,attr) {//用来获取指定对象属性的值
+        if(obj.currentStyle){
+            return obj.currentStyle[attr]
+        }else{
+            return window.getComputedStyle(obj,null)[attr]
+        }
+    }
+</script>
+</body>
+</html>

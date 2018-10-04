@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+            *{
+                margin: 0;
+                padding: 0;
+            }
+            body{
+                background-color: black;
+            }
+            .main{
+                 width: 800px;
+                 height: 400px;
+                 margin: 50px auto;
+             }
+            .btn{
+                width: 100px;
+                height: 40px;
+            }
+            .map{
+                position: relative;
+                width: 800px;
+                height: 400px;
+                background: #cccccc;
+            }
+        </style>
+</head>
+<body>
+        <div class="main">
+                <button id="begin" class="btn">开始游戏</button>
+                <div class="map" id="map"></div>
+            </div>
+    <script>
+        var map=document.getElementById("map")
+        var screenw=document.documentElement.clientWidth;
+        var screenh=document.documentElement.clientHeight;
+        var timer=null;
+        //首先贪吃蛇，用面向对象来写，首先要有蛇，蛇有自己的属性和方法，比如长宽，颜色，定位,方向，方法有跑，
+        function _Snake(){
+            this.width=10;
+            this.height=10;
+            this.direction="right";
+            this.weizhi=[
+                {x:2,y:0},
+                {x:1,y:0},
+                {x:0,y:0}
+            ];
+            //颜色想要动态变化，就要写在函数中动态调用
+            this.display=function(){//创建蛇显示在页面上，初始化
+                for(var i=0;i<this.weizhi.length;i++){
+                    var flag=document.createElement("div")
+                    this.weizhi[i].flag=flag
+                    flag.style.width=this.width+"px"
+                    flag.style.height=this.height+"px"
+                    flag.style.borderRadius="50%"
+                    flag.style.position="absolute"
+                    flag.style.backgroundColor="rgb("+Math.floor(Math.random()*256)+","+Math.floor(Math.random()*256)+","+Math.floor(Math.random()*256)+")"
+                    flag.style.left=this.weizhi[i].x*this.width+"px"
+                    flag.style.top=this.weizhi[i].y*this.height+"px"
+                    map.appendChild(flag)
+                }
+            }
+            this.run=function(){
+                for(var i=this.weizhi.length-1;i>0;i--){
+                    this.weizhi[i].x=this.weizhi[i-1].x
+                    this.weizhi[i].y=this.weizhi[i-1].y
+                }//让身体的后一位跟着前一位走
+                switch(this.direction){//根据头部判断方向施加速度
+                    case "right":this.weizhi[0].x++;
+                    break;
+                    case "left":this.weizhi[0].x--;
+                    break;
+                    case "up":this.weizhi[0].y++;
+                    break;
+                    case "down":this.weizhi[0].y--;
+                    break;
+                }
+                if(this.weizhi[0].x>(screenw/10-10)||this.weizhi[0].x<0||this.weizhi[0].y<0||this.weizhi[0].y>(screenh/10-10)){
+                    clearInterval(timer)
+                    alert("you die")//根据边界值判断，死亡清除定时器，删除旧的，初始化
+                    for(var i=0;i<this.weizhi.length;i++){
+                        if(this.weizhi[i].flag!==null){
+                            map.removeChild(this.weizhi[i].flag)
+                        }
+                    }
+
+                    this.weizhi=[
+                        {x:2,y:0},
+                        {x:1,y:0},
+                        {x:0,y:0}
+                    ]
+                    this.direction="right"
+                    this.display()//初始化完成
+                    return false//在js中，return false一般是用来阻止事件默认动作的，例如点击a标签执行事件之后，会跳转页面，加了return false就好了
+                }
+            }
+
+            //判断吃了一个食物会增长一节,根据蛇头判断
+            if(this.weizhi.x==food.x&&this.weizhi[0].y==food.y){
+                this.weizhi.push({x:null,y:null})
+                map.removeChild(food.flag)
+                food.display()
+            }
+            //吃到自己死亡，从第五节开始算，四节无论如何也吃不到自己
+            for(var j=5;j<this.weizhi.length;j++){
+                if(this.weizhi[j].x==this.weizhi[0].x&&this.weizhi[j].y==this.weizhi[0].y){
+                    clearInterval(timer)
+                    alert("you die")
+                    for(var i=0;i<this.body.length;i++){
+                    if(this.body[i].flag!=null) {
+                        map.removeChild(this.body[i].flag)
+                    }
+                }
+                this.body=[//回到初始状态
+                    {x:2,y:0},
+                    {x:1,y:0},
+                    {x:0,y:0}
+                ]
+                this.direction="right"
+                this.display()//显示初始状态
+                return false
+                }
+            }
+            for(var i=0;i<this.body.length;i++){
+                if(this.body[i].flag!=null){
+                    map.removeChild(this.body[i].flag)
+                }
+            }
+            //重新显示蛇
+            this.display()
+        }
+        
+        var snake=new _Snake()
+        snake.display()
+    </script>
+</body>
+</html>

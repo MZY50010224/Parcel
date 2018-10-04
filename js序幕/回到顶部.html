@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        p{
+            text-align: center;
+            margin-top: 20px;
+        }
+        #top{
+            display: none;
+            width: 40px;
+            height: 40px;
+            position: fixed;
+            left: 90%;
+            bottom: 30px;
+            background-color: brown;
+        }
+    </style>
+</head>
+<body>
+<span id="top"></span>
+<p>今天吃的好饱</p>
+<p>今天吃的好饱</p>
+<p>今天吃的好饱</p>
+<p>今天吃的好饱</p>
+<p>今天吃的好饱</p>
+<p>今天吃的好饱</p>
+<p>今天吃的好饱</p>
+<p>今天吃的好饱</p>
+<p>今天吃的好饱</p>
+<p>今天吃的好饱</p>
+<p>今天吃的好饱</p>
+<p>今天吃的好饱</p>
+<p>今天吃的好饱</p>
+<p>今天吃的好饱</p>
+<p>今天吃的好饱</p>
+<p>今天吃的好饱</p>
+<p>今天吃的好饱</p>
+<p>今天吃的好饱</p>
+<p>今天吃的好饱</p>
+<p>今天吃的好饱</p>
+<p>今天吃的好饱</p>
+<p>今天吃的好饱</p>
+<p>今天吃的好饱</p>
+<p>今天吃的好饱</p>
+<p>今天吃的好饱</p>
+<p>今天吃的好饱</p>
+<p>今天吃的好饱</p>
+<p>今天吃的好饱</p>
+<p>今天吃的好饱</p>
+<p>今天吃的好饱</p>
+<p>今天吃的好饱</p>
+<p>今天吃的好饱</p>
+<p>今天吃的好饱</p>
+<p>今天吃的好饱</p>
+<p>今天吃的好饱</p>
+<p>今天吃的好饱</p>
+<p>今天吃的好饱</p>
+<p>今天吃的好饱</p>
+<p>今天吃的好饱</p>
+<p>今天吃的好饱</p>
+<p>今天吃的好饱</p>
+<p>今天吃的好饱</p>
+<p>今天吃的好饱</p>
+<p>今天吃的好饱</p>
+<p>今天吃的好饱</p>
+<p>今天吃的好饱</p>
+<p>今天吃的好饱</p>
+<script>
+    window.onload=function () {
+        var span=document.getElementById("top")
+        var t=null;
+        var timer=null
+        window.onscroll=function () {
+            t=document.documentElement.scrollTop
+            // console.log(t)
+            if(t>0){
+                span.style.display="block"
+                span.onclick=function () {
+                    var end=0
+                    var begin=t
+                    clearInterval(timer)
+                    timer=setInterval(function () {
+                        begin+=(end-begin)*0.1
+                        console.log(Math.floor(begin))
+                        window.scrollTo(0,begin)
+
+                    },20)
+
+                }
+            }else if(t==0){
+                clearInterval(timer)
+                span.style.display="none"
+            }
+        }
+    }
+</script>
+</body>
+</html>

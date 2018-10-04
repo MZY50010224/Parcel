@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            list-style:none;
+        }
+        #box{
+            width: 300px;
+            height: 200px;
+            position: relative;
+            margin: 50px auto;
+        }
+        button{
+            margin-left: 20px;
+        }
+        p{
+            margin-top:20px;
+            margin-left: 63px;
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div id="box">
+        <button id="btn1">开始点名</button>
+        <button id="btn2">结束点名</button>
+        <p>name</p>
+    </div>
+    <script>
+        var btn1=document.getElementById("btn1")
+        var btn2=document.getElementById("btn2")
+        var pp=document.getElementsByTagName("p")[0]
+        var timer=null
+        var namearr=["马致远","杜甫","李白","曹操","周瑜","小乔"]
+        btn1.onclick=function(){
+            clearInterval(timer)
+            timer=setInterval(function(){
+                var x=parseInt(Math.random()*namearr.length)
+                // console.log(x)
+                pp.innerText=namearr[x]
+            },20)
+        }
+        btn2.onclick=function(){
+            clearInterval(timer)
+        }
+    </script>
+</body>
+</html>

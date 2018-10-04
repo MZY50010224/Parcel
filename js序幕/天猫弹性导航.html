@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        body{
+            background-color: pink;
+        }
+        #box{
+            width: 70%;
+            height: 0.8rem;
+            background: url(img/tu-2.jpg) no-repeat right center #fff;
+            background-size: contain;
+            position: absolute;
+            top: 10%;
+            left: 14%;
+            border-radius: 0.1rem;
+        }
+        #box>ul{
+            width: 100%;
+            height: 100%;
+            position: absolute;
+        }
+        #box>ul>li{
+            width: 1.2rem;
+            height: 0.8rem;
+            text-align: center;
+            line-height: 0.8rem;
+            font-size: 0.23rem;
+            float: left;
+            cursor: pointer;
+        }
+        #hong{
+            width: 1.1rem;
+            height: 0.8rem;
+            background-color: red;
+            position: absolute;
+            margin-left: 0.25rem;
+            border-radius: 0.1rem;
+        }
+    </style>
+</head>
+<body>
+    <nav id="box">
+        <div id="hong"></div>
+        <ul>
+            <li>双11狂欢</li>
+            <li>服装会场</li>
+            <li>数码家电</li>
+            <li>家具建材</li>
+            <li>母婴童装</li>
+            <li>手机会场</li>
+            <li>美妆会场</li>
+            <li>进口市场</li>
+            <li>飞猪旅行</li>
+        </ul>
+    </nav>
+    <script>
+        (function(){
+            var designW = 1900;  //设计稿宽
+            var font_rate = 100;
+            //onorientationchange表示屏幕旋转，也是事件，并且会触发onresize事件
+            //适配
+            document.getElementsByTagName("html")[0].style.fontSize = document.body.offsetWidth / designW * font_rate + "px";
+            document.getElementsByTagName("body")[0].style.fontSize = document.body.offsetWidth / designW * font_rate + "px";
+
+            //监测窗口大小变化
+            window.addEventListener("onorientationchange" in window ? "orientationchange" : "resize", function() {
+            document.getElementsByTagName("html")[0].style.fontSize = document.body.offsetWidth / designW * font_rate + "px";
+            document.getElementsByTagName("body")[0].style.fontSize = document.body.offsetWidth / designW * font_rate + "px";
+                    }, false);
+                })();
+    </script>
+    <script>
+        window.onload=function(){
+            // function $(id){
+            //     return typeof id ==="string" ? document.getElementById(id):null;
+            // }
+            var hong=document.getElementById("hong");
+            var ul=document.getElementsByTagName("ul")[0];
+            var lis=document.getElementsByTagName("li");
+            var beginx=0;//记录鼠标点击位置
+            // var end=0;
+            for(var i=0;i<lis.length;i++){
+                lis[i].onmouseover=function(){
+                    //遍历数组，提取单个li标签
+                    //当鼠标移动到此li标签上时获取offsetleft值并赋值给hong
+                    end=this.offsetLeft;
+                    // console.log(this.offsetLeft)
+                }
+                lis[i].onmouseout=function(){
+                    //当鼠标离开，让hong回到鼠标点击时的位置
+                    end=beginx
+                }
+                lis[i].onclick=function(){
+                    //鼠标点击获取当前hong位置
+                    beginx=this.offsetLeft
+                }
+            }
+            // begin+=(end-begin)*0.1;
+            //缓动动画
+            var begin=0,end=0;
+            setInterval(function(){
+                begin+=(end-begin)*0.1;
+                hong.style.left=(begin-21)+"px";
+                },10)//这个定时器一直开着，通过上面for循环改变end值，定时器获取到改变，之后用缓动公式解决问题
+        }
+    </script>
+</body>
+</html>

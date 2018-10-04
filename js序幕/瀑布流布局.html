@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        html,body{
+            width: 100%;
+            height: 100%;
+        }
+        img{
+            vertical-align: top;
+        }
+        #main{
+            position: relative;
+        }
+        .box{
+            float: left;
+            overflow: hidden;
+            padding: 15px 0 0 15px;
+        }
+        #pic{
+            padding: 10px;
+            border-radius: 10px;
+            border:3px solid black;
+        }
+        img{
+            width: 170px;
+        }
+    </style>
+</head>
+<body>
+    <div id="main">
+        <div class="box"><div id="pic"><img src="img/timg.jpg"></div> </div>
+        <div class="box"><div id="pic"><img src="img/timg1.jpg"></div> </div>
+        <div class="box"><div id="pic"><img src="img/timg2.jpg"></div> </div>
+        <div class="box"><div id="pic"><img src="img/timg3.jpg"></div> </div>
+        <div class="box"><div id="pic"><img src="img/timg4.jpg"></div> </div>
+        <div class="box"><div id="pic"><img src="img/timg5.jpg"></div> </div>
+        <div class="box"><div id="pic"><img src="img/timg6.jpg"></div> </div>
+        <div class="box"><div id="pic"><img src="img/timg7.jpg"></div> </div>
+        <div class="box"><div id="pic"><img src="img/timg8.jpg"></div> </div>
+        <div class="box"><div id="pic"><img src="img/timg9.jpg"></div> </div>
+        <div class="box"><div id="pic"><img src="img/timg10.jpg"></div> </div>
+        <div class="box"><div id="pic"><img src="img/timg11.jpg"></div> </div>
+        <div class="box"><div id="pic"><img src="img/timg12.jpg"></div> </div>
+        <div class="box"><div id="pic"><img src="img/timg13.jpg"></div> </div>
+        <div class="box"><div id="pic"><img src="img/timg14.jpg"></div> </div>
+        <div class="box"><div id="pic"><img src="img/timg15.jpg"></div> </div>
+        <div class="box"><div id="pic"><img src="img/timg.jpg"></div> </div>
+        <div class="box"><div id="pic"><img src="img/timg1.jpg"></div> </div>
+        <div class="box"><div id="pic"><img src="img/timg2.jpg"></div> </div>
+        <div class="box"><div id="pic"><img src="img/timg3.jpg"></div> </div>
+        <div class="box"><div id="pic"><img src="img/timg4.jpg"></div> </div>
+        <div class="box"><div id="pic"><img src="img/timg5.jpg"></div> </div>
+        <div class="box"><div id="pic"><img src="img/timg6.jpg"></div> </div>
+        <div class="box"><div id="pic"><img src="img/timg7.jpg"></div> </div>
+        <div class="box"><div id="pic"><img src="img/timg8.jpg"></div> </div>
+        <div class="box"><div id="pic"><img src="img/timg9.jpg"></div> </div>
+        <div class="box"><div id="pic"><img src="img/timg10.jpg"></div> </div>
+        <div class="box"><div id="pic"><img src="img/timg11.jpg"></div> </div>
+        <div class="box"><div id="pic"><img src="img/timg12.jpg"></div> </div>
+        <div class="box"><div id="pic"><img src="img/timg13.jpg"></div> </div>
+        <div class="box"><div id="pic"><img src="img/timg14.jpg"></div> </div>
+        <div class="box"><div id="pic"><img src="img/timg15.jpg"></div> </div>
+
+    </div>
+<script>
+    window.onload=function () {
+        var main=document.getElementById("main")
+        var allbox=document.getElementsByClassName("box")
+        //父盒子居中，让一个盒子居中，首先盒子要有宽度，子盒子的宽*列数=父盒子宽，列数=屏宽/子盒子宽取整
+        var pingw=document.documentElement.clientWidth;
+        var x=allbox[0].offsetWidth;
+        var lieshu=parseInt(pingw/x);
+        main.style.width=lieshu*x+"px"
+        main.style.margin="0 auto"
+
+
+        //获取第一行子盒子的高度
+        var heightarr=[],boxheight=0,minboxheight=0,index=0;
+        for(var i=0;i<allbox.length;i++){
+            //遍历求出所有盒子的高度，通过列数求出第一行的所有高度放入数组
+            boxheight=allbox[i].offsetHeight//所有高度
+
+            if(i<lieshu){
+                heightarr.push(allbox[i].offsetHeight)//第一行所有高度,放入数组
+            }else{
+                //剩余行，取出最矮的盒子高度
+                minboxheight=Math.min.apply(this,heightarr)//找到第一行最矮高度
+                //求出最矮盒子对应的索引
+                index=getindex(heightarr,minboxheight)//获取高度最小值索引
+                //子盒子定位
+                allbox[i].style.position="absolute"
+                // console.log(allbox[i].offsetWidth)
+                allbox[i].style.left=index*x+"px"
+                allbox[i].style.top=boxheight+"px"
+                heightarr[index]+=boxheight
+            }
+        }
+        // console.log(heightarr)
+        // console.log(minboxheight)
+        function getindex(arr,val){
+            for(var i=0;i<arr.length;i++){
+                if(arr[i]===val){
+                    return i
+                }
+            }
+        }
+    }
+
+
+</script>
+</body>
+</html>

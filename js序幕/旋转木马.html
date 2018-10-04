@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            list-style:none;
+        }
+        img{
+            vertical-align: top;
+        }
+        body{
+            background-color: black;
+        }
+        #bigbest{
+            width:1200px;
+            height: 400px;
+            margin: 100px auto;
+            position: relative;
+        }
+        /*#main{*/
+            /*width: 900px;*/
+            /*height: 350px;*/
+            /*position: absolute;*/
+        /*}*/
+        ul{
+            display: inline-block;
+            width: 1100px;
+            height: 360px;
+            position: absolute;
+        }
+        li{
+            display: inline-block;
+            position: absolute;
+            left: 200px;
+            top: 0px;
+        }
+        #bigbest li img{
+            width: 100%;
+            height: 100%;
+        }
+        #ctl{
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            opacity: 0;
+        }
+        #left{
+            width: 50px;
+            height: 50px;
+            position: absolute;
+            top: 45%;
+            left: 0;
+            background-color:yellow;
+            z-index: 9;
+        }
+        #right{
+            width: 50px;
+            height: 50px;
+            position: absolute;
+            top: 45%;
+            right: 0;
+            background-color:yellow;
+            z-index: 9;
+        }
+    </style>
+</head>
+<body>
+<div id="bigbest">
+        <ul>
+            <li><img src="img/huo1.jpg"></li>
+            <li><img src="img/huo2.jpg"></li>
+            <li><img src="img/huo3.jpg"></li>
+            <li><img src="img/huo4.jpg"></li>
+            <li><img src="img/huo1.jpg"></li>
+        </ul>
+    <div id="ctl">
+        <div id="left" class="left"></div>
+        <div id="right" class="right"></div>
+    </div>
+</div>
+<script src="js/myFunction.js"></script>
+<script>
+    var ul=document.getElementsByTagName("ul")[0]
+    var lis=document.getElementsByTagName("li")
+    var colors=["red","blue","yellow","green","gray"]
+    var bigbest=document.getElementById("bigbest")
+    var ctl=document.getElementById("ctl")
+    for(var i=0;i<lis.length;i++){
+        lis[i].style.backgroundColor=colors[i]
+    }
+    bigbest.onmouseover=function () {
+        slower(ctl,{"opacity":1})
+    }
+    bigbest.onmouseout=function () {
+        slower(ctl,{"opacity":0})
+    }
+    var json=[
+        {
+            width:400,
+            top:20,
+            left:50,
+            opacity:0.2,
+            zIndex:2
+        },
+        {
+            width:600,
+            top:70,
+            left:0,
+            opacity:0.8,
+            zIndex:3
+        },
+        {
+            width:800,
+            top:100,
+            left:200,
+            opacity:1,
+            zIndex:4
+        },
+        {
+            width:600,
+            top:70,
+            left:600,
+            opacity:0.8,
+            zIndex:3
+        },
+        {
+            width:400,
+            top:20,
+            left:750,
+            opacity:0.2,
+            zIndex:2
+        }
+    ]
+
+    for(var j=0;j<json.length;j++){
+        slower(lis[j],json[j])
+    }
+    for(var k=0;k<ctl.children.length;k++){
+        var item=ctl.children[k]
+        item.onclick=function () {
+            if(this.className==="left"){
+                json.push(json.shift())
+            }else{
+                json.unshift(json.pop())
+            }
+            for(var j=0;j<json.length;j++){
+                slower(lis[j],json[j])
+            }
+        }
+    }
+</script>
+</body>
+</html>

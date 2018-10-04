@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body oncontextmenu="return false">
+<h1>今天星期二，我们在上课，好嗨哦~~~~</h1>
+<script src="js/jquery-1.11.1.min.js"></script>
+<script>
+$("h1").on("mousedown",function (e) {
+    if(e.which===3){
+        $(this).trigger("rc")
+        // console.log("你点了右键")
+    }
+})
+    $("h1").on("rc",function () {
+        $(this).css("background","red")
+    })
+</script>
+</body>
+</html>

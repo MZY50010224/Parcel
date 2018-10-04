@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        header{
+            width: 100%;
+            height: 50px;
+            background-color: blue;
+            position: relative;
+            top: 0;
+            left: 0;
+        }
+        nav{
+            width: 100%;
+            height: 30px;
+            background-color: red;
+            position: relative;
+            top: 0;
+            left: 0;
+            z-index: 9;
+        }
+        .m{
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 9;
+        }
+        footer{
+            width: 100%;
+            height: 1000px;
+            position: relative;
+            top: 0;
+            left: 0;
+            background-color: green;
+        }
+    </style>
+</head>
+<body>
+    <header>
+
+    </header>
+    <nav>
+
+    </nav>
+    <footer>
+
+    </footer>
+<script>
+    window.onscroll=function (event) {
+        var event=event||window.event
+        var head=document.getElementsByTagName("header")[0]
+        var nav=document.getElementsByTagName("nav")[0]
+        var topp=nav.clientTop;
+        var height=head.offsetHeight;
+        // console.log(topp)
+        var scrollt=document.documentElement.scrollTop
+        if(scrollt>=height){
+            nav.className="m"
+        }else if(scrollt<=height){
+            nav.className=""
+        }
+        // console.log(height)
+    }
+
+
+</script>
+</body>
+</html>

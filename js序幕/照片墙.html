@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        #ul1{
+            width: 100%;
+            height: 100%;
+        }
+        li{
+            width: 20%;
+            height: 20%;
+            position: absolute;
+            transition-duration: 1s;
+            transition-property: transform;
+        }
+        img{
+            width: 100%;
+            height: 100%;
+            position: absolute;
+        }
+        .jojo{
+            /* top: 50%!important;
+            left: 50%!important; */
+            transform: rotate(0deg)!important;
+        }
+    </style>
+</head>
+<body>
+    <ul id="ul1"></ul>
+    <script>
+        window.onload=function(){
+            for(var i=0;i<4;i++){
+                var lis=document.createElement("li")
+                var ul=document.getElementById("ul1")
+                ul.appendChild(lis)
+                var imgs=document.createElement("img")
+                lis.appendChild(imgs)
+                //循环一次生成一个img加进li，li加进ul，循环10次，所以有十个
+            }
+            //使用循环遍历img数组，分别加入图片
+            var imgd=document.getElementsByTagName("img")
+            var lid=document.getElementsByTagName("li")
+            for(var j=0;j<imgd.length;j++){
+            
+                imgd[j].src="img/huo"+(j+1)+".jpg"
+                var x=document.documentElement.clientWidth-lid[j].offsetHeight;
+                var y=document.documentElement.clientHeight-lid[j].offsetWidth;
+                lid[j].style.left=Math.random()*x+"px";
+                lid[j].style.top=Math.random()*y+"px";
+                var deg=Math.random()*180;
+                lid[j].style.transform="rotate("+deg+"deg)"
+                lid[j].onmouseover=function(){
+                    for(var k=0;k<lid.length;k++){
+                        lid[k].className=""
+                    }
+                    this.className="jojo"
+                }
+                lid[j].onmouseleave=function(){
+                    this.className=""
+                }
+            }
+            
+        }
+    </script>
+</body>
+</html>

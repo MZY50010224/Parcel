@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+
+        table{
+            border: black 2px solid ;
+            margin: 100px auto;
+            border-collapse: collapse;
+        }
+        thead{
+            background-color: skyblue;
+            border: black 1px solid;
+        }
+        tbody{
+            background-color: #cccccc;
+        }
+        tr,td{
+            border: black 1px solid;
+            padding: 10px 30px;
+
+        }
+
+    </style>
+    <script src="js/jquery-1.11.1.min.js"></script>
+    <script src="js/jquery.tablejia.js"></script>
+</head>
+<body>
+<table>
+    <thead>
+    <tr>
+        <td>name</td>
+        <td>age</td>
+        <td>opo</td>
+        <td>otrpo</td>
+    </tr>
+    </thead>
+    <tbody id="tb">
+
+    </tbody>
+    <script>
+        $("#tb").tablejia({
+            "url":"./opop.json",
+            click:function () {
+                $(this).css("background","red")
+            },
+            mouseover:function () {
+                $(this).css("background","white")
+            },
+            mouseleave:function f() {
+                $(this).css("background","#cccccc")
+            }
+        })//调用表格插件，用户通过传参来渲染数据，并且自定义时间
+    </script>
+</table>
+</body>
+</html>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        img{
+            width: 500px;
+            height: 200px;
+            overflow: hidden;
+            float: left;
+        }
+        #box{
+            width: 500px;
+            height: 230px;
+            position: relative;
+            margin: 100px auto;
+            overflow: hidden;
+        }
+        #chang{
+            width: 2000px;
+            height: 200px;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        #gray{
+            width: 500px;
+            height: 30px;
+            background-color: gray;
+            position: absolute;
+            top: 200px;
+            left: 0;
+        }
+        #redk{
+            width: 0;
+            height: 30px;
+            background-color: red;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        #redz{
+            width: 15px;
+            height: 30px;
+            background-color: red;
+            position: absolute;
+            top: 0;
+            left: 0;
+            border-radius: 0.3rem;
+        }
+    </style>
+</head>
+<body>
+    <div id="box">
+        <div id="chang">
+            <img src="img/huo1.jpg" alt="">
+            <img src="img/huo2.jpg" alt="">
+            <img src="img/huo3.jpg" alt="">
+            <img src="img/huo4.jpg" alt="">
+        </div>
+        <div id="gray">
+            <div id="redk"></div>
+            <div id="redz"></div>
+        </div>
+    </div>
+    <script>
+        var chang=document.getElementById("chang")
+        var gray=document.getElementById("gray")
+        var redk=document.getElementById("redk")
+        var redz=document.getElementById("redz")
+
+        //首先有三个事件，鼠标按下，抬起，移动
+        redz.onmousedown=function (event) {
+            var event=event||window.event
+            //获取初始位置,鼠标距屏幕左距离-初始值=红块位移，及大红宽
+            var chux=event.clientX-this.offsetLeft//初始值是灰距离左边的长
+            // console.log(chux)
+            document.onmousemove=function (event) {
+                var event=event||window.event
+                var x=event.clientX-chux;
+                if(x<0){
+                    x=0
+                }else if(x>gray.offsetWidth-redz.offsetWidth){
+                    x=gray.offsetWidth-redz.offsetWidth
+                }
+                redz.style.left=x+"px"
+                redk.style.width=x+"px"
+                chang.style.left=-x*3+"px"
+            }
+            document.onmouseup=function () {
+                document.onmousemove=null
+            }
+        }
+    </script>
+</body>
+</html>
