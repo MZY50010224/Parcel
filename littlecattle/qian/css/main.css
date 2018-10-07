@@ -1,0 +1,405 @@
+*{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+#head{
+    width: 100%;
+    height: 5%;
+    background-color: white;
+    position: fixed;
+    top: 0;
+    left:0;
+    z-index: 9;
+}
+
+img{
+    vertical-align: bottom;
+}
+#tu{
+    width: 45%;
+    height: 100%;
+    background-image: url(../img/QQ截图20180820190319.png);
+    background-size: cover;
+}
+#shou{
+    width: 7%;
+    height: 100%;
+    background-image: url(../img/收藏\ \(2\).png);
+    background-size: cover;
+    position: absolute;
+    top: 0;
+    left: 83%;
+}
+#you{
+    width: 7%;
+    height: 75%;
+    background-image: url(../img/身份证.png);
+    margin-top: 1%;
+    background-size: cover;
+    position: absolute;
+    top: 0;
+    left: 92%;
+}
+#bigbest{
+    /*width: 1200px;*/
+    /*height: 350px;*/
+    margin: 0 auto;
+    position: relative;
+}
+#main{
+    width: 100%;
+    height: 100%;
+    position: relative;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+}
+ul{
+    width: 200%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+li{
+    width: 50%;
+    height: 100%;
+    position: absolute;
+    background-size: cover;
+}
+#crl{
+    width:100%;
+    height: 100%;
+    position: relative;
+    top: -100%;
+    left: 0;
+}
+#box{
+    width: 100%;
+    height: 10%;
+    position: relative;
+    top: 5%;
+    left: 0;
+}
+#box>div{
+    width: 24.5%;
+    height: 98%;
+    float: left;
+}
+#box1,#box2,#box3,#box4{
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+#box11{
+    width: 55%;
+    height: 80%;
+    margin: 10% auto;
+    background-image: url(../img/摩托车.png);
+    background-size: cover;
+}
+#box22{
+    width: 55%;
+    height: 80%;
+    margin: 10% auto;
+    background-image: url(../img/火.png);
+    background-size: cover;
+}
+#box33{
+    width: 55%;
+    height: 80%;
+    margin: 10% auto;
+    background-image: url(../img/门店.png);
+    background-size: cover;
+}
+#box44{
+    width: 55%;
+    height: 80%;
+    margin: 10% auto;
+    background-image: url(../img/周边游.png);
+    background-size: cover;
+}
+#footer{
+    width: 100%;
+    height: 10%;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    background-color: white;
+}
+#footer>div{
+    width: 24.5%;
+    height: 98%;
+    float: left;
+}
+#foo1,#foo2,#foo3,#foo4{
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+#footer p{
+    font-size: 15px;
+    font-weight: bold;
+    color: black;
+    position: relative;
+    top: -22%;
+    left: 35%;
+    z-index: 9;
+}
+#foo11{
+    width: 40%;
+    height: 60%;
+    margin: 10% auto;
+    background-image: url(../img/tasklist_fill.png);
+    background-size: cover;
+    
+}
+#foo22{
+    width: 40%;
+    height: 60%;
+    margin: 10% auto;
+    background-image: url(../img/会员.png);
+    background-size: cover;
+}
+#foo33{
+    width: 40%;
+    height: 60%;
+    margin: 10% auto;
+    background-image: url(../img/订单.png);
+    background-size: cover;
+}
+#foo44{
+    width: 40%;
+    height: 55%;
+    margin: 12% auto;
+    background-image: url(../img/身份证.png);
+    background-size: 100%;
+}
+#sec{
+    width: 100%;
+    height: 100%;
+    background-color: whitesmoke;
+    position: relative;
+    top: 10%;
+    left: 0;
+    display: block;
+}
+#all{
+    text-align: center;
+    width: 100%;
+    height: 5%;
+    color: white;
+    background-color: black;
+    position: relative;
+    top: 0;
+    left: 0;
+
+}
+#zheng{
+    width: 100%;
+    background-color: gray;
+    position: relative;
+    top: 0;
+    left: 0;
+}
+#zheng>img{
+    width: 100%;
+    position: relative;
+    top: 0;
+    left: 0;
+}
+#one{
+    width: 100%;
+    height: 5%;
+    color: white;
+    background-color: black;
+    position: relative;
+    top: 0;
+    left: 0;
+    text-align: center;
+}
+#pei{
+    width: 100%;
+    background-color: gray;
+    position: relative;
+    top: 0;
+    left: 0;
+}
+#pei>img{
+    width: 100%;
+    position: relative;
+    top: 0;
+    left: 0;
+}
+#sec2{
+    width: 100%;
+    height: 100%;
+    background-color: blue;
+    position: relative;
+    top: 10%;
+    left: 0;
+    display: none;
+}
+#sec2>div{
+    width: 100%;
+    height: 10%;
+    background-color: white;
+    position: relative;
+    top: 0;
+    left: 0;
+}
+#sec2>div>img{
+    width: 45%;
+    height: 90%;
+    position: absolute;
+    top: 5%;
+    left: 0;
+}
+#sec2>div>p:nth-child(2){
+    font-size: 20px;
+    font-weight: bold;
+    color:black;
+    position: absolute;
+    top: 10%;
+    left: 50%;
+}
+#sec2>div>p:nth-child(3){
+    font-size: 15px;
+    color:black;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+}
+#sec2>div>p:nth-child(4){
+    font-size: 15px;
+    color:black;
+    position: absolute;
+    top: 10%;
+    left: 85%;
+}
+#sec2>div>p:nth-child(5){
+    font-size: 15px;
+    color:black;
+    position: absolute;
+    top: 50%;
+    left: 85%;
+}
+#sec3{
+    width: 100%;
+    height: 100%;
+    background-color: blue;
+    position: absolute;
+    top: -5%;
+    left: 0;
+    display: none;
+    
+}
+#sec3>div:nth-child(1){
+    width: 100%;
+    height: 5%;
+    position: relative;
+    top: 5%;
+    left: 0;
+    background-color: white;
+    text-align: center;
+    line-height: 200%;
+    z-index: 12;
+}
+#sec3>div:nth-child(2)>div{
+    width: 15%;
+    height: 85%;
+    background-image: url(../img/头像.png);
+    background-size: cover;
+    position: absolute;
+    top: 8%;
+    left: 3%;
+}
+#sec3>div:nth-child(2)>p{
+    font-size: 20px;
+    color: black;
+    position: absolute;
+    top: 25%;
+    left: 20%;
+}
+#sec3>div:nth-child(2)>button{
+    width: 15%;
+    height: 50%;
+    background-color: darkgray;
+    position: absolute;
+    top: 25%;
+    right: 5%;
+    border: none;
+}
+#sec3>div:nth-child(2){
+    width: 100%;
+    height: 10%;
+    position: relative;
+    top: 5%;
+    left: 0;
+    background-color: white;
+    border-top: 1px solid ghostwhite;
+    z-index: 12;
+}
+#sec3>div:nth-child(3){
+    width:100%;
+    height: 10%;
+    position: relative;
+    top: 5%;
+    left: 0;
+    background-color: white;
+    border-top: 1px solid ghostwhite;
+    z-index: 12;
+}
+#sec3>div:nth-child(3)>p:nth-child(1){
+    font-size: 20px;
+    position: absolute;
+    top: 30%;
+    left: 5%;
+}
+#sec3>div:nth-child(3)>p:nth-child(2){
+    font-size: 20px;
+    position: absolute;
+    top: 30%;
+    left: 80%;
+}
+#sec3>div:nth-child(3)>div{
+    width: 7%;
+    height: 50%;
+    background-image: url(../img/箭头\ 右.png);
+    background-size: cover;
+    position: absolute;
+    top: 27%;
+    right: 5%;
+}
+#sec3>div:nth-child(4){
+    width:100%;
+    height: 10%;
+    position: relative;
+    top: 5%;
+    left: 0;
+    background-color: white;
+    border-top: 1px solid ghostwhite;
+    z-index: 12;
+}
+#sec3>div:nth-child(4)>p:nth-child(1){
+    font-size: 20px;
+    position: absolute;
+    top: 30%;
+    left: 5%;
+}
+#sec3>div:nth-child(4)>p:nth-child(2){
+    font-size: 20px;
+    position: absolute;
+    top: 30%;
+    left: 80%;
+}
+#sec3>div:nth-child(4)>div{
+    width: 7%;
+    height: 50%;
+    background-image: url(../img/箭头\ 右.png);
+    background-size: cover;
+    position: absolute;
+    top: 27%;
+    right: 5%;
+}

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/xiang.css">
+    <script src="./js/url.js"></script>
+    <script src="./js/jquery-2.1.4.min.js"></script>
+    <script src="./js/xiangajax.js"></script>
+</head>
+<body>
+    <header id="head">
+        <div id="prev"><</div>
+        <p>商品详情</p>
+    </header>
+    <div id="img">
+    </div>
+    <section id="sec">
+        <div id="shoucang">
+        </div>
+        <p id="name">名称:</p>
+        <p id="price">价格:</p>
+        <p id="color">颜色:</p>
+        <div id="shuliang"><div id="jian">-</div><label for="num">数量:</label><input type="text" value="0" disabled id="num"><div id="zeng">+</div></div>
+        <div id="jie"></div>
+    </section>
+    <footer id="foot">
+        <p id="heji">合计:0</p>
+        <div id="gouwu">加入购物车</div>
+        <div id="now">立即购买</div>
+    </footer>
+    <div id="zhifu">
+        <div id="z"></div>
+        <p>确认付款</p>
+        <div id="blue">点击支付</div>
+    </div>
+    <div id="xianshi"></div>
+</body>
+<script>
+    window.onload=function(){
+        var body=document.getElementsByTagName("body")[0]
+        body.style.width=document.documentElement.clientWidth+"px"
+        body.style.height=document.documentElement.clientHeight+"px"
+    }
+</script>
+</html>

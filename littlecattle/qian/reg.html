@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/reg.css">
+    <script src="./js/jquery-2.1.4.min.js"></script>
+    <script src="./js/url.js"></script>
+    <script src="./js/rejajax.js"></script>
+</head>
+<body>
+    <header id="headerreg"></header>
+    <p id="p">用户注册</p>
+    <section id="secreg">
+        <div id="u"><label for="username">用户名:</label><input type="text" id="username" placeholder="请输入用户名"></div><br>
+        <div id="text1"></div><br>
+        <div id="p1"></div><label for="password">密码:</label><input type="password" id="password" placeholder="请输入密码"></div><br>
+        <div id="text2"></div><br>
+        <div id="p2"></div><label for="password2">确认密码:</label><input type="password" id="password2" placeholder="请确认密码"></div><br>
+        <div id="text3"></div><br>
+        <div id="t"></div><label for="usertel">手机号:</label><input type="tel" id="usertel" placeholder="请输入手机号"></div><br>
+        <div id="text4"></div><br>
+        </div><button id="reg">注册</button>
+        <button id="chong">重置</button><br>
+        <div id="have">我有账号</div>
+    </section>
+    <div id="move"></div>
+    <script>
+    (function(){
+    var designW = 1900;  //设计稿宽
+    var font_rate = 100;
+    //onorientationchange表示屏幕旋转，也是事件，并且会触发onresize事件
+    //适配
+    document.getElementsByTagName("html")[0].style.fontSize = document.body.offsetWidth / designW * font_rate + "px";
+    document.getElementsByTagName("body")[0].style.fontSize = document.body.offsetWidth / designW * font_rate + "px";
+
+    //监测窗口大小变化
+    window.addEventListener("onorientationchange" in window ? "orientationchange" : "resize", function() {
+    document.getElementsByTagName("html")[0].style.fontSize = document.body.offsetWidth / designW * font_rate + "px";
+    document.getElementsByTagName("body")[0].style.fontSize = document.body.offsetWidth / designW * font_rate + "px";
+            }, false);
+})();
+</script>
+</body>
+</html>

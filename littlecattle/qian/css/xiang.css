@@ -1,0 +1,230 @@
+*{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+img{
+    vertical-align: bottom;
+}
+#head{
+    width: 100%;
+    height: 5%;
+    background-color: red;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9;
+}
+#prev{
+    width: 10%;
+    height: 100%;
+    color: white;
+    position: absolute;
+    top: 0;
+    left: 2%;
+    line-height: 170%;
+}
+#head p{
+    font-size: 13px;
+    color: white;
+    position: absolute;
+    top: 20%;
+    left: 43%;
+}
+#img{
+    width: 100%;
+    padding-top: 3px;
+    background-color: gray;
+    position: relative;
+    top: 5%;
+    left: 0;
+}
+#img>img{
+    width: 100%;
+    height: 100%;
+}
+#sec{
+    width: 100%;
+    padding-top: 3px;
+    background-color: white;
+    position: relative;
+    border-top: 1px solid #3c3cc3;
+    top: 5%;
+    left: 0;
+}
+#name{
+    font-size: 14px;
+    font-weight: 600;
+    width: 90%;
+    position: relative;
+    top: 8px;
+    left: 3%;
+}
+#price,#color{
+    font-size: 14px;
+    position: relative;
+    width: 90%;
+    top: 5px;
+    left: 3%;
+}
+#shuliang{
+    height: 5%!important;
+    overflow: hidden;
+    font-size: 14px;
+    position: relative;
+    width: 90%;
+    top: 5px;
+    left: 3%;
+}
+#jian{
+    width: 5%;
+    height: 90%;
+    position: absolute;
+    top: 6%;
+    left: 13%;
+    background-color: white;
+    text-align: center;
+    font-weight: bold;
+}
+#zeng{
+    width: 5%;
+    height: 90%;
+    position: absolute;
+    top: 6%;
+    left: 26%;
+    background-color: white;
+    font-weight: bold;
+}
+#num{
+    width: 8%;
+    height: 15px;
+    position: relative;
+    text-indent: 9%;
+    top: 0;
+    left: 8%;
+}
+#jie{
+    width: 100%;
+    height: 100px;
+    position: relative;
+    top: 5px;
+    left:0;
+    text-indent: 3%;
+    background-color: white;
+    color: black;
+}
+#foot{
+    width: 100%;
+    height: 5%;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    background-color: white;
+    z-index: 9;
+}
+#heji{
+    width: 40%;
+    height: 100%;
+    position: relative;
+    top: 0;
+    left: 0;
+    background-color: white;
+    line-height: 180%;
+    text-indent: 3%;
+}
+#gouwu{
+    width: 22%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 56%;
+    background-color: orangered;
+    font-size: 13px;
+    color: white;
+    text-align: center;
+    line-height: 250%;
+}
+#now{
+    width: 22%;
+    height: 100%;
+    background-color: red;
+    color: white;
+    position: absolute;
+    top: 0;
+    left: 78%;
+    font-size: 13px;
+    text-align: center;
+    line-height: 250%;
+}
+#zhifu{
+    width: 100%;
+    height: 30%;
+    background-color: white;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    z-index: 10;
+    border-top: 1px solid gainsboro;
+    display: none;
+}
+#blue{
+    width: 80%;
+    height: 15%;
+    background-color: blue;
+    position: absolute;
+    bottom: 10%;
+    left: 10%;
+    text-align: center;
+    color: white;
+    border-radius: 10px;
+    line-height: 180%;
+}
+#zhifu>p{
+    width: 100%;
+    height: 15%;
+    color: black;
+    text-align: center;
+    border-bottom: 1px solid gainsboro;
+    position: absolute;
+    top: 0;
+    left: 0;
+    line-height: 180%;
+}
+#z{
+    width: 5%;
+    height: 10%;
+    background-image: url(../img/箭头\ 右.png);
+    background-size: cover;
+    position: absolute;
+    top: 3%;
+    left: 0;;
+    transform: rotateZ(180deg);
+    z-index: 11;
+}
+#xianshi{
+    width: 40%;
+    height: 4%;
+    position: absolute;
+    top: 10%;
+    left: 30%;
+    background-color: black;
+    color: white;
+    border-radius: 5px;
+    text-align: center;
+    line-height: 160%;
+    display: none;
+}
+#shoucang{
+    width: 10%;
+    height: 20%;
+    /* background-image: url(../img/收藏\ \(2\).png);
+    background-size: cover; */
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+#shoucang>img{
+    width: 100%;
+    height: 100%;
+
+}

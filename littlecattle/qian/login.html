@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/login.css">
+    <script src="./js/jquery-2.1.4.min.js"></script>
+    <script src="./js/url.js"></script>
+    <script src="./js/loginajax.js"></script>
+</head>
+<body>
+    <header id="headerreg"></header>
+    <p id="p">用户登陆</p>
+    <section id="secreg">
+        <div id="u"><label for="username">用户名:</label><input type="text" id="username" placeholder="请输入用户名"></div><br>
+        <div id="p1"><label for="password">密码:</label><input type="password" id="password" placeholder="请输入密码"></div><br>
+        </div><button id="login">登陆</button>
+        <button id="chong">重置</button><br>
+        <a href="#" id="have">我有账号</a>
+    </section>
+    <div id="move"></div>
+    <!-- <script>
+        (function(){
+        var designW = 1900;  //设计稿宽
+        var font_rate = 100;
+        //onorientationchange表示屏幕旋转，也是事件，并且会触发onresize事件
+        //适配
+        document.getElementsByTagName("html")[0].style.fontSize = document.body.offsetWidth / designW * font_rate + "px";
+        document.getElementsByTagName("body")[0].style.fontSize = document.body.offsetWidth / designW * font_rate + "px";
+    
+        //监测窗口大小变化
+        window.addEventListener("onorientationchange" in window ? "orientationchange" : "resize", function() {
+        document.getElementsByTagName("html")[0].style.fontSize = document.body.offsetWidth / designW * font_rate + "px";
+        document.getElementsByTagName("body")[0].style.fontSize = document.body.offsetWidth / designW * font_rate + "px";
+                }, false);
+    })();
+    </script> -->
+    <script>
+        window.onload=function(){
+            var body=document.getElementsByTagName("body")[0]
+        body.style.width=document.documentElement.clientWidth+"px"
+        body.style.height=document.documentElement.clientHeight+"px"
+        console.log(document.documentElement.clientWidth+document.documentElement.clientHeight)
+        }
+        
+    </script>
+</body>
+</html>

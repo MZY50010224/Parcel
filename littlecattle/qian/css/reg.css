@@ -1,0 +1,86 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+#headerreg{
+    width: 80%;
+    height:5rem;
+    position: relative;
+    top: 3rem;
+    left: 10%;
+    background-size: contain;
+    background-image: url(../img/QQ截图20180820190319.png);
+    background-repeat: no-repeat;
+    background-position-y: 50%;
+}
+#p{
+    font-size: 1rem;
+    color: black;
+    position: relative;
+    top: 3rem;
+    left:0;
+    text-align: center;
+}
+#secreg{
+    width: 70%;
+    height: 20rem;
+    font-size: 0.8rem;
+    position: relative;
+    top: 6.5rem;
+    left: 10%;
+    padding-left: 10%;
+}
+#u,#p1,#p2,#t{
+    width: 80%;
+    height: 1rem;
+}
+#username,#password,#password2,#usertel{
+    width: 43%;
+    height: 1.3rem;
+    position: absolute;
+    left: 6rem;
+}
+#reg{
+    width: 25%;
+    height: 1.3rem;
+    background-color: blue;
+    border-radius: 0.2rem;
+    border: none;
+    position: relative;
+    top: 2.5rem;
+    left: 0;
+}
+#chong{
+    width: 25%;
+    height: 1.3rem;
+    background-color: red;
+    border-radius: 0.2rem;
+    border: none;
+    position: relative;
+    top: 2.5rem;
+    left: 3.5rem;
+}
+#have{
+    width: 25%;
+    height: 1.3rem;
+    border-radius: 0.2rem;
+    border: none;
+    position: relative;
+    top: 3.5rem;
+    left: 3.6rem;
+    text-align: center;
+}
+#move{
+    width: 20%;
+    height: 1rem;
+    position: absolute;
+    top: 2rem;
+    left: 42%;
+    background-color: hsla(0, 0%, 6%, 0.8);
+    color: white;
+    display: none;
+    font-size: 0.5rem;
+    text-align: center;
+    line-height: 1rem;
+    font-weight: 600;
+}

@@ -1,0 +1,97 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+#headerreg{
+    width: 80%;
+    height: 10%;
+    background-image: url(../img/QQ截图20180820190319.png);
+    background-size: 100%;
+    position: absolute;
+    top: 15%;
+    left: 10%;
+}
+#p{
+    width: 80%;
+    height: 5%;
+    position: absolute;
+    top: 30%;
+    left: 10%;
+    text-align: center;
+    line-height: 100%;
+}
+#secreg{
+    width: 80%;
+    height: 50%;
+    position: absolute;
+    top: 35%;
+    left:10%;
+}
+#u{
+    width: 80%;
+    height: 10%;
+    position: absolute;
+    top: 10%;
+    left: 10%;
+}
+#username{
+    width: 65%;
+    height: 80%;
+    position: absolute;
+    top: 0;
+    left: 35%;
+}
+#p1{
+    width: 80%;
+    height: 10%;
+    position: absolute;
+    top: 35%;
+    left: 10%;
+}
+#password{
+    width: 65%;
+    height: 80%;
+    position: absolute;
+    top: 0;
+    left: 35%;
+}
+#login{
+    width: 20%;
+    height: 8%;
+    background-color: blue;
+    position: absolute;
+    top: 70%;
+    left: 15%;
+    border: none;
+    color: white;
+    border-radius: 0.3rem;
+}
+#chong{
+    width: 20%;
+    height: 8%;
+    background-color: red;
+    position: absolute;
+    top: 70%;
+    left: 65%;
+    border: none;
+    color: white;
+    border-radius: 0.3rem;
+}
+#have{
+    width: 20%;
+    height: 10%;
+    position: absolute;
+    top: 90%;
+    left: 40%;
+}
+#move{
+    width: 20%;
+    height: 4%;
+    position: absolute;
+    top: 8%;
+    left: 40%;
+    background-color:black;
+    opacity: 0.9;
+    color:white;
+    display: none;
+}

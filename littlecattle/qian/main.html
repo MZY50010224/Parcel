@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+        <link rel="stylesheet" href="./css/main.css">
+        <script src="./js/url.js"></script>
+        <script src="js/myFunction.js"></script>
+        <script src="js/jquery-1.11.1.min.js"></script>
+        <script src="js/jquery.lunbo.js"></script>
+        <script src="./js/mainajax.js"></script>
+</head>
+<body>
+    <header id="head">
+        <div id="tu"></div>
+        <div id="shou"></div>
+        <div id="you"></div>
+    </header>
+    <div id="bigbest">
+        <div id="main">
+            <ul>
+            </ul>
+            </div>
+            <div id="crl">
+                <div id="left" class="left"></div>
+                <div id="right" class="right"></div>
+                <div id="bottom">
+                    <ol id="ol">
+                    </ol>
+            </div>
+        </div>
+    </div>
+    <div id="box">
+        <div id="box1"><div id="box11"></div></div>
+        <div id="box2"><div id="box22"></div></div>
+        <div id="box3"><div id="box33"></div></div>
+        <div id="box4"><div id="box44"></div></div>
+    </div>
+    <section id="sec">
+        <p id="all">整车专卖</p>
+        <div id="zheng"></div>
+        <p id="one">配件专卖</p>
+        <div id="pei"></div>
+    </section>
+    <section id="sec2">
+        
+    </section>
+    <section id="sec3">
+        <div id="kaitou">用户中心</div>
+        <div id="geren">
+            <div></div>
+            <p>fghj</p>
+            <button>退出</button>
+        </div>
+        <div id="shoucangqu">
+            <p>收藏夹</p>
+            <p>we</p>
+            <div></div>
+        </div>
+        <div id="gouwuchequ">
+            <p>购物车列表</p>
+            <p>wer</p>
+            <div></div>
+        </div>
+    </section>
+    <footer id="footer">
+            <div id="foo1"><div id="foo11"></div><p>商城</p></div>
+            <div id="foo2"><div id="foo22"></div><p>服务</p></div>
+            <div id="foo3"><div id="foo33"></div><p>订单</p></div>
+            <div id="foo4"><div id="foo44"></div><p>我的</p></div>
+    </footer>
+    <script>
+        $("#bigbest").lunbo({"urla":"img/92366ade.jpg",
+                    "urlb":"img/n1s.jpg",
+                    "urlc":"img/4573b117.jpg",//想轮播的图片路径
+                    "urld":"img/e30acc90.jpg",
+                    "width":document.documentElement.clientWidth+"px",//父盒子的大小自己设定
+                    "height":(document.documentElement.clientHeight)/3+"px"
+        })
+    </script>
+    <script>
+        window.onload=function(){
+            var body=document.getElementsByTagName("body")[0]
+            body.style.width=document.documentElement.clientWidth+"px"
+            body.style.height=document.documentElement.clientHeight+"px"
+        }     
+    </script>
+</body>
+</html>
